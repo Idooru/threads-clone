@@ -6,9 +6,9 @@ export default function TabLayout() {
   const router = useRouter();
 
   return (
-    <Tabs screenOptions={{ headerShown: true }}>
+    <Tabs screenOptions={{ headerShown: false }}>
       <Tabs.Screen
-        name="index"
+        name="(home)"
         options={{
           tabBarLabel: () => null,
           tabBarIcon: ({ focused }) => (
@@ -72,6 +72,12 @@ export default function TabLayout() {
               color={focused ? "black" : "gray"}
             />
           ),
+        }}
+      />
+      <Tabs.Screen
+        name="(post)/[username]/post/[postID]"
+        options={{
+          href: null,
         }}
       />
     </Tabs>
