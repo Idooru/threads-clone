@@ -28,67 +28,99 @@ export default function Index() {
         alignItems: "center",
       }}
     >
-      <View>
-        <TouchableOpacity
-          onPress={() => {
-            router.push("/activity");
+      <TouchableOpacity onPress={() => router.replace("/activity")}>
+        <Text
+          style={{
+            color: pathname === "/activity" ? "red" : "black",
+            fontSize: 16,
+            fontWeight: pathname === "/activity" ? "bold" : "normal",
           }}
         >
-          <Text>All</Text>
+          All
+        </Text>
+      </TouchableOpacity>
+
+      <View>
+        <TouchableOpacity onPress={() => router.replace("/activity/follows")}>
+          <Text
+            style={{
+              color: pathname === "/activity/follows" ? "red" : "black",
+              fontSize: 16,
+              fontWeight: pathname === "/activity/follows" ? "bold" : "normal",
+            }}
+          >
+            Follows
+          </Text>
         </TouchableOpacity>
       </View>
+
       <View>
-        <TouchableOpacity
-          onPress={() => {
-            router.push("/activity/follows");
-          }}
-        >
-          <Text>Follows</Text>
+        <TouchableOpacity onPress={() => router.replace("/activity/replies")}>
+          <Text
+            style={{
+              color: pathname === "/activity/replies" ? "red" : "black",
+              fontSize: 16,
+              fontWeight: pathname === "/activity/replies" ? "bold" : "normal",
+            }}
+          >
+            Replies
+          </Text>
         </TouchableOpacity>
       </View>
+
       <View>
-        <TouchableOpacity
-          onPress={() => {
-            router.push(`/activity/replies`);
-          }}
-        >
-          <Text>Replies</Text>
+        <TouchableOpacity onPress={() => router.replace("/activity/mentions")}>
+          <Text
+            style={{
+              color: pathname === "/activity/mentions" ? "red" : "black",
+              fontSize: 16,
+              fontWeight: pathname === "/activity/mentions" ? "bold" : "normal",
+            }}
+          >
+            Mentions
+          </Text>
         </TouchableOpacity>
       </View>
+
       <View>
-        <TouchableOpacity
-          onPress={() => {
-            router.push(`/activity/mentions`);
-          }}
-        >
-          <Text>Mentions</Text>
+        <TouchableOpacity onPress={() => router.replace("/activity/quotes")}>
+          <Text
+            style={{
+              color: pathname === "/activity/quotes" ? "red" : "black",
+              fontSize: 16,
+              fontWeight: pathname === "/activity/quotes" ? "bold" : "normal",
+            }}
+          >
+            Quotes
+          </Text>
         </TouchableOpacity>
       </View>
+
       <View>
-        <TouchableOpacity
-          onPress={() => {
-            router.push(`/activity/quotes`);
-          }}
-        >
-          <Text>Quotes</Text>
+        <TouchableOpacity onPress={() => router.replace("/activity/reposts")}>
+          <Text
+            style={{
+              color: pathname === "/activity/reposts" ? "red" : "black",
+              fontSize: 16,
+              fontWeight: pathname === "/activity/reposts" ? "bold" : "normal",
+            }}
+          >
+            Reposts
+          </Text>
         </TouchableOpacity>
       </View>
+
       <View>
-        <TouchableOpacity
-          onPress={() => {
-            router.push(`/activity/reposts`);
-          }}
-        >
-          <Text>Reposts</Text>
-        </TouchableOpacity>
-      </View>
-      <View>
-        <TouchableOpacity
-          onPress={() => {
-            router.push(`/activity/verified`);
-          }}
-        >
-          <Text>Verified</Text>
+        <TouchableOpacity onPress={() => router.replace("/activity/verified")}>
+          <Text
+            style={{
+              color: pathname === "/activity/verified" ? "red" : "black",
+              fontSize: 16,
+              fontWeight: pathname === "/activity/verified" ? "bold" : "normal",
+            }}
+          >
+            Verified
+          </Text>
         </TouchableOpacity>
       </View>
     </View>
