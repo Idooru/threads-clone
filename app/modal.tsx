@@ -1,10 +1,13 @@
 import HashTagSelector from "@/components/hash-tag-selector";
 import { FontAwesome, Ionicons } from "@expo/vector-icons";
+import * as Location from "expo-location";
 import { useRouter } from "expo-router";
 import React, { useState } from "react";
 import {
+  Alert,
   FlatList,
   Image,
+  Linking,
   Pressable,
   StyleSheet,
   Text,
@@ -98,7 +101,41 @@ export default function Modal() {
 
   const removeImageFromThread = (id: string, uriToRemove: string) => {};
 
-  const getMyLocation = async (id: string) => {};
+  const getMyLocation = async (id: string) => {
+    let { status } = await Location.requestForegroundPermissionsAsync();
+    console.log("getMyLocation", status);
+    if (status !== "granted") {
+      Alert.alert(
+        "Location permission not granted",
+        "Please grant location permission to use this feature",
+        [
+          {
+            text: "Open settings",
+            onPress: () => {
+              Linking.openSettings();
+            },
+          },
+          {
+            text: "Cancel",
+          },
+        ],
+      );
+      return;
+    }
+
+    const location = await Location.getCurrentPositionAsync({});
+    console.log([location.coords.latitude, location.coords.longitude]);
+    setThreads((prevThreads) =>
+      prevThreads.map((thread) =>
+        thread.id === id
+          ? {
+              ...thread,
+              location: [location.coords.latitude, location.coords.longitude],
+            }
+          : thread,
+      ),
+    );
+  };
 
   const renderThreadItem = ({
     item,
