@@ -1,3 +1,4 @@
+import HashTagSelector from "@/components/hash-tag-selector";
 import { FontAwesome, Ionicons } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
 import React, { useState } from "react";
@@ -116,7 +117,11 @@ export default function Modal() {
       </View>
       <View style={styles.contentContainer}>
         <View style={styles.userInfoContainer}>
-          <Text style={styles.username}>zerohch0</Text>
+          <View style={styles.editHashTag}>
+            <Text style={styles.username}>zerocho0</Text>
+            <Text style={styles.cursor}> {">"} </Text>
+            <HashTagSelector />
+          </View>
           {index > 0 && (
             <TouchableOpacity
               onPress={() => removeThread(item.id)}
@@ -313,6 +318,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
     marginBottom: 2,
   },
+  editHashTag: { flexDirection: "row", alignItems: "center" },
+  cursor: { fontSize: 16, color: "#999" },
   username: {
     fontWeight: "600",
     fontSize: 15,
